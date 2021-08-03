@@ -1,6 +1,6 @@
 {
-"companyName": "DefaultCompany",
-"productName": "Unity-WebXR-Export",
+"companyName": "FH-Aachen",
+"productName": "Assistenzsystem",
 "productVersion": "0.1",
 "dataUrl": "built.data.unityweb",
 "wasmCodeUrl": "built.wasm",
