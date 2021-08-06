@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Assistenzsystem</title>
@@ -10,42 +10,43 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      UnityLoader.compatibilityCheck = function (unityInstance, onsuccess, onerror) {
+        UnityLoader.compatibilityCheck = function (unityInstance, onsuccess, onerror) {
         if (!UnityLoader.SystemInfo.hasWebGL) {
-          unityInstance.popup('Your browser does not support WebGL',
-            [{text: 'OK', callback: onerror}]);
+        unityInstance.popup('Your browser does not support WebGL',
+        [{text: 'OK', callback: onerror}]);
         } else {
-          onsuccess();
+        onsuccess();
         }
-      }
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/built.json", {onProgress: UnityProgress});
+        }
+        var unityInstance = UnityLoader.instantiate("unityContainer", "Build/built.json", {onProgress: UnityProgress});
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <div class="webgl-content">
-      <div id="unityContainer" style="width: 768px; height: 1080px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-       
-        <button class="enterar" id="enterar" value="Enter AR" disabled>AR</button>
-       
-        <div class="title">Assistenzsystem</div>
-      </div>
+        <div id="unityContainer" style="width: 768px; height: 1080px"></div>
+        <div class="footer">
+            <div class="webgl-logo"></div>
+
+            <button class="enterar" id="enterar" value="Enter AR" disabled>AR</button>
+
+            <div class="title">Assistenzsystem</div>
+        </div>
     </div>
+    <div style=" border:solid 1px black; width:200px; height:30px; margin:auto; text-align:center" onclick="unityInstance.SendMessage('JavascriptHook','SetUser','Developer')">STRING</div>
     <script>
-      let enterARButton = document.getElementById('enterar');
-      
-      
-      document.addEventListener('onARSupportedCheck', function (event) {
+        let enterARButton = document.getElementById('enterar');
+
+
+        document.addEventListener('onARSupportedCheck', function (event) {
         enterARButton.disabled = !event.detail.supported;
-      }, false);
-    
-      enterARButton.addEventListener('click', function (event) {
+        }, false);
+
+        enterARButton.addEventListener('click', function (event) {
         document.dispatchEvent(new CustomEvent('toggleAR', {}));
-      }, false);
-   
+        }, false);
+
     </script>
     <script src="gl-matrix-min.js"></script>
     <script src="webxr.js"></script>
-  </body>
+</body>
 </html>
